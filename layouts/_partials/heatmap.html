@@ -1,0 +1,82 @@
+{{- $isZh := eq .Site.Language.Lang "zh" -}}
+
+{{- /* 统计主内容区的文章（按发布日期） */ -}}
+{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+{{- $counts := newScratch -}}
+{{- range $pages -}}
+    {{- $counts.Add (.Date.Format "2006-01-02") 1 -}}
+{{- end -}}
+
+{{- /* 最近 53 周，从周日开始对齐 */ -}}
+{{- $today := now -}}
+{{- $start := $today.AddDate 0 0 -364 -}}
+{{- $start = $start.AddDate 0 0 (sub 0 (int $start.Weekday)) -}}
+
+{{- $total := 0 -}}
+{{- range $pages -}}
+    {{- if and (ge .Date.Unix $start.Unix) (le .Date.Unix $today.Unix) -}}
+        {{- $total = add $total 1 -}}
+    {{- end -}}
+{{- end -}}
+
+<section class="heatmap-card{{ if $isZh }} is-zh{{ end }}">
+    <div class="heatmap-header">
+        <div class="widget-icon">{{ partial "helper/icon" "date" }}</div>
+        <h2 class="heatmap-title">{{ if $isZh }}更新热力图{{ else }}Contribution Heatmap{{ end }}</h2>
+        <span class="heatmap-total">
+            {{- if $isZh -}}过去一年 {{ $total }} 篇{{- else -}}{{ $total }} post{{ if ne $total 1 }}s{{ end }} in the past year{{- end -}}
+        </span>
+    </div>
+
+    <div class="heatmap-body">
+        <div class="heatmap-weekdays" aria-hidden="true">
+            {{- range $i := seq 0 6 -}}
+                <span>{{ if $isZh }}{{ if eq $i 1 }}一{{ else if eq $i 3 }}三{{ else if eq $i 5 }}五{{ end }}{{ else }}{{ if eq $i 1 }}Mon{{ else if eq $i 3 }}Wed{{ else if eq $i 5 }}Fri{{ end }}{{ end }}</span>
+            {{- end -}}
+        </div>
+
+        <div class="heatmap-scroll">
+            <div class="heatmap-months" aria-hidden="true">
+                {{- $prevMonth := 0 -}}
+                {{- range $w := seq 0 52 -}}
+                    {{- $weekStart := $start.AddDate 0 0 (mul $w 7) -}}
+                    {{- $month := int $weekStart.Month -}}
+                    {{- if ne $month $prevMonth -}}
+                        <span class="heatmap-month" style="grid-column: {{ add $w 1 }}">
+                            {{- if $isZh }}{{ $month }}月{{ else }}{{ $weekStart.Format "Jan" }}{{ end -}}
+                        </span>
+                        {{- $prevMonth = $month -}}
+                    {{- end -}}
+                {{- end -}}
+            </div>
+
+            <div class="heatmap-grid">
+                {{- range $w := seq 0 52 -}}
+                    {{- range $d := seq 0 6 -}}
+                        {{- $date := $start.AddDate 0 0 (add (mul $w 7) $d) -}}
+                        {{- if gt $date.Unix $today.Unix -}}
+                            <span class="heatmap-cell is-future"></span>
+                        {{- else -}}
+                            {{- $key := $date.Format "2006-01-02" -}}
+                            {{- $count := $counts.Get $key | default 0 -}}
+                            {{- $level := 0 -}}
+                            {{- if ge $count 5 }}{{ $level = 4 }}
+                            {{- else if ge $count 3 }}{{ $level = 3 }}
+                            {{- else if eq $count 2 }}{{ $level = 2 }}
+                            {{- else if eq $count 1 }}{{ $level = 1 }}{{ end -}}
+                            <span class="heatmap-cell" data-level="{{ $level }}" title="{{ $key }} · {{ if $isZh }}{{ if eq $count 0 }}没有发布{{ else }}{{ $count }} 篇{{ end }}{{ else }}{{ if eq $count 0 }}No posts{{ else }}{{ $count }} post{{ if ne $count 1 }}s{{ end }}{{ end }}{{ end }}"></span>
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+
+    <div class="heatmap-legend">
+        <span>{{ if $isZh }}少{{ else }}Less{{ end }}</span>
+        {{- range $l := seq 0 4 -}}
+            <span class="heatmap-cell" data-level="{{ $l }}"></span>
+        {{- end -}}
+        <span>{{ if $isZh }}多{{ else }}More{{ end }}</span>
+    </div>
+</section>
