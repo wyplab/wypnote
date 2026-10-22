@@ -1,0 +1,46 @@
+mainSections = ["post"]
+rssFullContent = true
+favicon = "img/avatar.png"
+
+[footer]
+    since = 2026
+    customText = ""
+
+[sidebar]
+    compact = false
+    avatar = "img/avatar.png"
+
+[article]
+    headingAnchor = true
+    # 数学公式默认关闭；单篇文章在 front matter 写 math: true 即可启用 KaTeX
+    math = false
+    toc = true
+    readingTime = true
+
+    [article.list]
+        showTags = true
+
+    [article.license]
+        enabled = false
+
+[widgets]
+    homepage = [
+        { type = "search" },
+        { type = "archives", params = { limit = 5 } },
+        { type = "categories", params = { limit = 10 } },
+        { type = "tag-cloud", params = { limit = 20 } },
+    ]
+    page = [
+        { type = "toc" },
+    ]
+
+[colorScheme]
+    toggle = true
+    default = "auto"
+
+[comments]
+    enabled = false
+    provider = "giscus"
+
+[cookies]
+    enabled = false

@@ -1,0 +1,30 @@
+[[social]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/wyplab"
+    [social.params]
+        icon = "brand-github"
+        newTab = true
+
+[[social]]
+    identifier = "bilibili"
+    name = "Bilibili"
+    url = "https://space.bilibili.com/1631881240"
+    [social.params]
+        icon = "brand-bilibili"
+        newTab = true
+
+[[social]]
+    identifier = "email"
+    name = "Email"
+    url = "mailto:1453323218@qq.com"
+    [social.params]
+        icon = "mail"
+
+[[social]]
+    identifier = "rss"
+    name = "RSS"
+    url = "https://wyplab.github.io/wypnote/index.xml"
+    [social.params]
+        icon = "rss"
+        newTab = true

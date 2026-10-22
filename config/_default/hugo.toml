@@ -1,0 +1,23 @@
+baseURL = "https://wyplab.github.io/wypnote/"
+title = "wypnote"
+theme = "hugo-theme-stack"
+
+# 默认语言：中文放在根路径，英文在 /en/ 下
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+
+# 中文分词/摘要/阅读时长需要开启
+hasCJKLanguage = true
+enableRobotsTXT = true
+timeZone = "Asia/Shanghai"
+
+[pagination]
+    pagerSize = 10
+
+[permalinks]
+    post = "/p/:slug/"
+    page = "/:slug/"
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"

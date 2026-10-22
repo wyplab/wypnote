@@ -1,0 +1,25 @@
+[zh]
+    label = "简体中文"
+    locale = "zh-CN"
+    title = "wypnote"
+    weight = 1
+
+    [zh.params]
+        description = "记录工作、学习与生活"
+
+        [zh.params.sidebar]
+            subtitle = "一起变得更强"
+            emoji = "📚"
+
+[en]
+    label = "English"
+    locale = "en-US"
+    title = "wypnote"
+    weight = 2
+
+    [en.params]
+        description = "Notes on work, study, and life"
+
+        [en.params.sidebar]
+            subtitle = "Let's get stronger together"
+            emoji = "📚"

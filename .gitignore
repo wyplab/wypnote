@@ -1,0 +1,10 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+assets/jsconfig.json
+
+# Binaries and local files
+hugo.exe
+.DS_Store
+Thumbs.db
