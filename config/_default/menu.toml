@@ -20,11 +20,3 @@
     url = "mailto:1453323218@qq.com"
     [social.params]
         icon = "mail"
-
-[[social]]
-    identifier = "rss"
-    name = "RSS"
-    url = "https://wyplab.github.io/wypnote/index.xml"
-    [social.params]
-        icon = "rss"
-        newTab = true
