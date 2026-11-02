@@ -4,11 +4,7 @@ slug: i-turned-out-to-be-so-weak-that-i-couldn-t-even-protect-my-own-puppy-z1v9f
 url: >-
   /post/i-turned-out-to-be-so-weak-that-i-couldn-t-even-protect-my-own-puppy-z1v9fak.html
 date: '2026-11-01 01:17:00+08:00'
-lastmod: '2026-11-02 12:29:22+08:00'
-tags:
-  - 小狗
-keywords: 小狗
-description: 小狗被偷狗贼偷走了，写点东西，记录下我跟这只小狗相处的日子
+lastmod: '2026-11-02 12:36:44+08:00'
 toc: true
 isCJKLanguage: true
 ---
@@ -23,17 +19,19 @@ isCJKLanguage: true
 
 # 2025-11-23
 
-我“哄睡” 小狗![2025-11-23 141416](/wypnote/images/2025-11-23 141416-20261102114900-9c04ri2.jpg)
+我“哄睡” 小狗
+
+![2025-11-23 141416](/wypnote/images/2025-11-23-141416-20261102124530-vny44r5.jpg)
 
 # 2025-11-27
 
-拍摄了小狗和它妈妈的合照![2025-11-27 091148](/wypnote/images/2025-11-27 091148-20261102114940-5i1thu4.jpg)
+拍摄了小狗和它妈妈的合照![2025-11-27 091148](/wypnote/images/2025-11-27-091148-20261102124530-at3awbh.jpg)
 
 # 2025-11-27
 
 继续哄睡小狗
 
-![2025-11-27 122116](/wypnote/images/2025-11-27 122116-20261102115001-wki0seq.jpg)
+![2025-11-27 122116](/wypnote/images/2025-11-27-122116-20261102124530-fx8d6fj.jpg)
 
 # 2025-12-01
 
