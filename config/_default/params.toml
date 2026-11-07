@@ -39,8 +39,11 @@ favicon = "img/avatar.png"
     default = "auto"
 
 [comments]
-    enabled = false
-    provider = "giscus"
+    enabled = true
+    provider = "waline"
+
+[comments.waline]
+    serverURL = "https://waline-rho-ten.vercel.app"
 
 [cookies]
     enabled = false
